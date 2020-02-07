@@ -42,9 +42,10 @@ if __name__ == "__main__":
     for filename in yolo_files:
         file = open(yolo_data_folder +"/"+ filename)
         content = file.readlines()
-        dets = {}
+        dets = []
         for line in content:
-            print(Detection(line))
+            dets.append(Detection(line))
+        res[filename] = dets
     
 
 
