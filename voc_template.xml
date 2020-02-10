@@ -1,27 +1,29 @@
 <annotation>
-	<folder>GeneratedData_Train</folder>
-	<filename>000001.png</filename>
-	<path>/my/path/GeneratedData_Train/000001.png</path>
+	<folder>${data.folder}</folder>
+	<filename>${data.filename}</filename>
+	<path>${data.path}</path>
 	<source>
 		<database>Unknown</database>
 	</source>
 	<size>
-		<width>224</width>
-		<height>224</height>
+		<width>${data.width}</width>
+		<height>${data.height}</height>
 		<depth>3</depth>
 	</size>
 	<segmented>0</segmented>
+	%for o in data.objects:
 	<object>
-		<name>21</name>
+		<name>${o.name}</name>
 		<pose>Frontal</pose>
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<occluded>0</occluded>
 		<bndbox>
-			<xmin>82</xmin>
-			<xmax>172</xmax>
-			<ymin>88</ymin>
-			<ymax>146</ymax>
+			<xmin>${o.xmin}</xmin>
+			<xmax>${o.xmax}</xmax>
+			<ymin>${o.ymin}</ymin>
+			<ymax>${o.ymax}</ymax>
 		</bndbox>
 	</object>
+	%endfor
 </annotation>
