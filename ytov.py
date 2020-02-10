@@ -69,11 +69,14 @@ if __name__ == "__main__":
         res.append(dets)
     
     i = 0
+    ready_l = 0
     allr= len(res)
     for r in res:
         tmp = template.Template(filename="voc_template.xml")
         ready = int(25*i/allr)
-        print("\r [" ,"="*(ready+1), " "*(25-ready-1), end="]")
+        if ready > ready_l:
+            print("\r [" ,"="*(ready+1), " "*(25-ready-1), end="]")
+            ready_l = ready
         i+=1
         f = open(out_path + "/" + r.filename.split(".")[0] + ".xml", "w+")
         f.write(tmp.render_unicode(data=r))
