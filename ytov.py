@@ -33,10 +33,10 @@ class Detection():
 class Object:
     def __init__(self, yolo_line, img_width, img_height):
         self.name, x, y, w, h = yolo_line.split(" ")  
-        self.xmin = (float(x)-float(w)/2)*img_width
-        self.xmax = (float(x)+float(w)/2)*img_width
-        self.ymin = (float(y)-float(h)/2)*img_height
-        self.ymax = (float(y)+float(h)/2)*img_height
+        self.xmin = int((float(x)-float(w)/2)*img_width)
+        self.xmax = int((float(x)+float(w)/2)*img_width)
+        self.ymin = int((float(y)-float(h)/2)*img_height)
+        self.ymax = int((float(y)+float(h)/2)*img_height)
 
 if __name__ == "__main__":
     args = parser.parse_args()
